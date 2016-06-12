@@ -41,6 +41,9 @@ bot.on("message", (msg) => {
         bot.reply(msg, " please respect tables ┬──┬ ノ( ゜-゜ノ)");
         console.log("Received: " + msg.content);
     }
+    else if(msg.content === callPrefix + " who created you?"){
+        bot.reply(msg, " the legendary Genesis-sama created me");
+    }
 });
 
 bot.loginWithToken(authDetails.token);
