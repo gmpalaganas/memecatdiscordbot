@@ -10,3 +10,4 @@ So far none still thinking about it, will also ask members for suggestions
 
 * Discord.js
 * Typescript
+* XMLHttpRequest
