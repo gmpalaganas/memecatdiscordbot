@@ -2,7 +2,9 @@
   "name": "memecatdiscordbot",
   "version": "1.0.0",
   "description": "This is a bot for the DOSE chat server in Discord",
-  "main": "src/memecatbot.js",
+  "scripts": {
+      "start": "node src/memecatbot.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gmpalaganas/memecatdiscordbot.git"
