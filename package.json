@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/gmpalaganas/memecatdiscordbot/issues"
   },
-  "homepage": "https://github.com/gmpalaganas/memecatdiscordbot#readme"
+  "homepage": "https://github.com/gmpalaganas/memecatdiscordbot#readme",
   "dependencies": {
       "discord.js": "8.0.0"
   }
