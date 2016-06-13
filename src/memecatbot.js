@@ -1,7 +1,11 @@
 var Discord = require('discord.js');
 var xkcd = require('xkcd-imgs');
+var cheerio = require('cheerio');
+var request = require('request');
 
 var authDetails = require('../res/auth.json');
+
+var mayPasokBaUrl = "maypasokba.com";
     
 var bot = new Discord.Client();
 
@@ -46,6 +50,17 @@ bot.on("message", (msg) => {
             var send_msg = "XKCD Image: " + img.title;
             send_msg += "\n" + img.url;
             bot.sendMessage(msg.channel, send_msg);
+        });
+        console.log("Received: " + msg.content);
+    } else if(msg.content.toLowerCase() == "may pasok ba?"){
+        request("http://www.maypasokba.com/", function(error, response, body){
+            if(error)
+                console.log(error);
+            else{
+                $ = cheerio.load(body);
+                var maypasok = $('h1').html();
+                bot.sendMessage(msg.channel, maypasok);
+            }
         });
         console.log("Received: " + msg.content);
     }
