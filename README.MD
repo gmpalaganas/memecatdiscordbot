@@ -3,11 +3,9 @@
 This is a bot for the DOSE chat server in Discord
 
 # Feature List
+* Answers some questions about itself
+* Check if there are classes (Philippines)
+* Random XKCD
+* Response to certain messages
 
-So far none still thinking about it, will also ask members for suggestions
 
-# Dependencies
-
-* Discord.js
-* Typescript
-* XMLHttpRequest
