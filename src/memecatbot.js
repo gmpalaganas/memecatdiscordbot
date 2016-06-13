@@ -12,7 +12,7 @@ process.on('exit', (code) => {
 
 
 process.on('uncaughtException', (err) => {
-    console.log('Caugth exception: ${err}');
+    console.log('Caugth exception: ' + err);
 });
 
 var callPrefix = '!cat';
