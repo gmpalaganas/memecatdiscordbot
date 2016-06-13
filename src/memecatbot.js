@@ -42,7 +42,7 @@ bot.on("message", (msg) => {
         bot.reply(msg, " the legendary Genesis-sama created me");
         console.log("Received: " + msg.content);
     } else if(msg.content === callPrefix + " xkcd" ){
-        xkcd.img(function(img){
+        xkcd.img(function(err, img){
             var send_msg = "XKCD Image: " + img.title;
             send_msg += "\n" + img.url;
             bot.sendMessage(msg.channel, send_msg);
