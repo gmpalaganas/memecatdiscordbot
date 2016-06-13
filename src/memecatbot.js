@@ -43,9 +43,9 @@ bot.on("message", (msg) => {
         console.log("Received: " + msg.content);
     } else if(msg.content === callPrefix + " xkcd" ){
         xkcd.img(function(img){
-            var msg = "XKCD Image: " + img.title;
-            msg += "\n" + img.url;
-            bot.sendMessage(msg.channel, msg);
+            var send_msg = "XKCD Image: " + img.title;
+            send_msg += "\n" + img.url;
+            bot.sendMessage(msg.channel, send_msg);
         });
         console.log("Received: " + msg.content);
     }
