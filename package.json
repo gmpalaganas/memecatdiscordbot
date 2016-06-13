@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/gmpalaganas/memecatdiscordbot#readme",
   "dependencies": {
-      "discord.js": "8.0.0"
+      "discord.js": "8.0.0",
+      "xkcd-imgs": "1.0.1"
   }
 }
