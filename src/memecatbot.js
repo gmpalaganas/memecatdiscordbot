@@ -40,12 +40,14 @@ bot.on("message", (msg) => {
         console.log("Received: " + msg.content);
     } else if(msg.content === callPrefix + " who created you?"){
         bot.reply(msg, " the legendary Genesis-sama created me");
+        console.log("Received: " + msg.content);
     } else if(msg.content === callPrefix + " xkcd" ){
-            xkcd.img(function(img){
-                var msg = "XKCD Image: " + img.title;
-                msg += "\n" + img.url;
-                bot.sendMessage(msg.channel, msg);
-            });
+        xkcd.img(function(img){
+            var msg = "XKCD Image: " + img.title;
+            msg += "\n" + img.url;
+            bot.sendMessage(msg.channel, msg);
+        });
+        console.log("Received: " + msg.content);
     }
 });
 
