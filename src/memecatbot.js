@@ -58,7 +58,7 @@ bot.on("message", (msg) => {
             
             var welcomeMsg = "Welcome **" + args[2] + "** to the Dose Discord chat server!\n\n";
             welcomeMsg += "I am Me-me bot! I am the official helper bot of this chat server, I am still under develepment though, so for now you could ask my big sis __**Bot-chan**__ for help! Pro-tip, you could check her command list by sending `]help` in any text chat channel within the Dose server";
-            welcomeMsg += "\n\n If you want more priviliges, please send a message within the **#general** channel and mentioning the **supreme_leader** i.e \"@supreme_leader more priviledes please!\"";
+            welcomeMsg += "\n\n If you want more priviliges, please send a message within the **#general** channel and mentioning the **supreme_leader** i.e *\"@supreme_leader more privileges please!\"*";
             welcomeMsg += "\n\n If you want to help develop me, you could fork my official repo and then send pull requests when you want to add your changes. Here is my GitHub link https://github.com/gmpalaganas/memecatdiscordbot";
             welcomeMsg += "\n\n I hope you enjoy your stay!";
             var server = bot.servers.get("name", "DOSE");
