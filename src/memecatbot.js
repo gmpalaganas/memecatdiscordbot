@@ -54,7 +54,7 @@ bot.on("message", (msg) => {
                 bot.sendMessage(msg.channel, send_msg);
             });
 
-        } else if( args[1] == "welcome" ){
+        } else if( args[1] === "welcome" ){
             
             var welcomeMsg = "Welcome **" + args[2] + "** to the Dose Discord chat server!\n\n";
             welcomeMsg += "I am Me-me bot! I am the official helper bot of this chat server, I am still under develepment though, so for now you could ask my big sis __**Bot-chan**__ for help! Pro-tip, you could check her command list by sending `]help` in any text chat channel within the Dose server";
@@ -69,6 +69,14 @@ bot.on("message", (msg) => {
             else
                 bot.sendMessage(user, welcomeMsg);
 
+        } else if( args[1] === "help"){
+            var helpMsg = "** Me-me cat bot commands list **\n";
+            helpMsg += "**!cat help** see commands list\n";
+            helpMsg += "**!cat xkcd** show random xkcd comic\n";
+            helpMsg += "**!cat welcome *user*** send a welcome message to *user*\n";
+            helpMsg += "**!cat creator** show cat bot creator\n";
+            helpMsg += "**!cat killer** show cat killer";
+            bot.sendMessage(msg.author, helpMsg);
         }
         console.log("Received: " + msg.content);
     } else{
