@@ -7,7 +7,7 @@ var authDetails = require('../res/auth.json');
 
 var mayPasokBaUrl = "maypasokba.com";
     
-var bot = new Discord.Client();
+const bot = new Discord.Client();
 
 process.on('exit', (code) => {
     console.log("Closing bot");
@@ -33,26 +33,30 @@ bot.on("message", (msg) => {
 
     var args = msg.content.split(" ");
 
-    console.log("Received: " + msg.content);
     if(args[0] === callPrefix){
+
+        logMessage(msg);
+        console.log("Received: " + msg.content);
+        console.log("Channel ID: " + msg.channel.id);
+
         if(msg.conent === callPrefix){
 
-            bot.sendMessage(msg.channel, "Nyaaa~");
+            msg.channel.sendMessage("Nyaa~");
 
         } else if( args[1] === "killer"){
 
-            bot.reply(msg," Albei Keith Capito Tolete");
+            msg.reply("Albei Keith Capito Tolete");
 
         } else if( args[1] ==="creator"){
 
-            bot.reply(msg, " the legendary Genesis-sama created me");
+            msg.reply("The legendary Genesis-sama created me");
 
         } else if( args[1] ===  "xkcd" ){
 
             xkcd.img(function(err, img){
                 var send_msg = "XKCD Image: " + img.title;
                 send_msg += "\n" + img.url;
-                bot.sendMessage(msg.channel, send_msg);
+                msg.channel.sendMessage(send_msg);
             });
 
         } else if( args[1] === "welcome" ){
@@ -66,9 +70,9 @@ bot.on("message", (msg) => {
             var user = server.members.get("name", args[2]);
 
             if(user == null)
-                bot.sendMessage(msg.channel, "User *" + args[2] + "* not found");
+                msg.channel.sendMessage("User *" + args[2] + "* not found");
             else
-                bot.sendMessage(user, welcomeMsg);
+                user.sendMessage(welcomeMsg);
 
         } else if( args[1] === "help"){
             var helpMsg = "** Me-me cat bot commands list **\n";
@@ -77,26 +81,29 @@ bot.on("message", (msg) => {
             helpMsg += "**!cat welcome *user*** send a welcome message to *user*\n";
             helpMsg += "**!cat creator** show cat bot creator\n";
             helpMsg += "**!cat killer** show cat killer";
-            bot.sendMessage(msg.author, helpMsg);
+            msg.author.sendMessage(helpMsg);
         }
     } else{
         if(ouchStrings.indexOf(msg.content) > -1){
 
-            bot.reply(msg, " on a scale from 1-10, how would you rate your pain?");
+            logMessage(msg);
+            msg.reply(" on a scale from 1-10, how would you rate your pain?");
 
         } else if(msg.content === "(╯°□°）╯︵ ┻━┻"){
 
-            bot.reply(msg, " please respect tables ┬──┬ ノ( ゜-゜ノ)");
+            logMessage(msg);
+            msg.reply(" please respect tables ┬──┬ ノ( ゜-゜ノ)");
 
         } else if(msg.content.toLowerCase() == "may pasok ba?"){
 
+            logMessage(msg);
             request("http://www.maypasokba.com/", function(error, response, body){
                 if(error)
                     console.log(error);
                 else{
                     $ = cheerio.load(body);
                     var maypasok = $('h1').html();
-                    bot.sendMessage(msg.channel, maypasok);
+                    msg.channel.sendMessage(maypasok);
                 }
             });
         }
@@ -104,4 +111,11 @@ bot.on("message", (msg) => {
     }
 });
 
-bot.loginWithToken(authDetails.token);
+bot.login(authDetails.token);
+
+function logMessage(msg){
+    console.log("Received: " + msg.content);
+    console.log("Channel ID: " + msg.channel.id);
+    console.log("Author id " + msg.author.id);
+    //msg.channel.sendMessage("Recieved command: " + msg.content);
+}
