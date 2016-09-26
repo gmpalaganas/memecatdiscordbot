@@ -1,6 +1,6 @@
 {
   "name": "memecatdiscordbot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This is a bot for the DOSE chat server in Discord",
   "scripts": {
       "start": "node src/memecatbot.js"
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/gmpalaganas/memecatdiscordbot#readme",
   "dependencies": {
-      "discord.js": "8.0.0",
+      "discord.js": "9.3.0",
       "xkcd-imgs": "1.0.1",
       "cheerio": "0.20.0",
       "request": "2.72.0"
