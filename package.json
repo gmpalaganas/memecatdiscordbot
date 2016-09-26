@@ -1,6 +1,9 @@
 {
   "name": "memecatdiscordbot",
   "version": "1.1.0",
+  "engines":{
+      "node": "6.6.0"
+  },
   "description": "This is a bot for the DOSE chat server in Discord",
   "scripts": {
       "start": "node src/memecatbot.js"
