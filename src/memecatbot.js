@@ -2,6 +2,7 @@ var Discord = require('discord.js');
 var xkcd = require('xkcd-imgs');
 var cheerio = require('cheerio');
 var request = require('request');
+var hepburn = require('hepburn');
 
 var authDetails = require('../res/auth.json');
 
@@ -82,6 +83,15 @@ bot.on("message", (msg) => {
             helpMsg += "**!cat creator** show cat bot creator\n";
             helpMsg += "**!cat killer** show cat killer";
             msg.author.sendMessage(helpMsg);
+        } else if( args[1] == "romanize" ){
+            var reply = convertArgsString(args.slice(2),hepburn.fromKana);
+            msg.reply(reply);
+        } else if ( args[1] == "toHiragana"){
+            var reply = convertArgsString(args.slice(2),hepburn.toHiragana);
+            msg.reply(reply);
+        } else if ( args[1] == "toKatakana"){
+            var reply = convertArgsString(args.slice(2),hepburn.toKatakana);
+            msg.reply(reply);
         }
     } else{
         if(ouchStrings.indexOf(msg.content) > -1){
@@ -118,4 +128,12 @@ function logMessage(msg){
     console.log("Channel ID: " + msg.channel.id);
     console.log("Author id " + msg.author.id);
     //msg.channel.sendMessage("Recieved command: " + msg.content);
+}
+
+
+function convertArgsString(args, func){
+    var retStr = '';
+    for(var i = 0; i < args.length; i++)
+        retStr += func(args[i]) + ' ';
+    return retStr;
 }

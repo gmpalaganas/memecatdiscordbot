@@ -23,6 +23,7 @@
       "discord.js": "9.3.0",
       "xkcd-imgs": "1.0.1",
       "cheerio": "0.20.0",
-      "request": "2.72.0"
+      "request": "2.72.0",
+      "hepburn": "1.0.0"
   }
 }
