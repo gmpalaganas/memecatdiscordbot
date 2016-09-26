@@ -82,6 +82,9 @@ bot.on("message", (msg) => {
             helpMsg += "**!cat welcome *user*** send a welcome message to *user*\n";
             helpMsg += "**!cat creator** show cat bot creator\n";
             helpMsg += "**!cat killer** show cat killer";
+            helpMsg += "**!cat romanize <hiragana/katakana string>** converts from hiragana/katakana to romaji"
+            helpMsg += "**!cat toHiragana <romaji>** converts from romaji to hiragana"
+            helpMsg += "**!cat toKatakana <romaji>** converts from romaji to katakana"
             msg.author.sendMessage(helpMsg);
         } else if( args[1] == "romanize" ){
             var reply = convertArgsString(args.slice(2),hepburn.fromKana);
