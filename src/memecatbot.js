@@ -33,6 +33,7 @@ bot.on("message", (msg) => {
 
     var args = msg.content.split(" ");
 
+    console.log("Received: " + msg.content);
     if(args[0] === callPrefix){
         if(msg.conent === callPrefix){
 
@@ -78,17 +79,14 @@ bot.on("message", (msg) => {
             helpMsg += "**!cat killer** show cat killer";
             bot.sendMessage(msg.author, helpMsg);
         }
-        console.log("Received: " + msg.content);
     } else{
         if(ouchStrings.indexOf(msg.content) > -1){
 
             bot.reply(msg, " on a scale from 1-10, how would you rate your pain?");
-            console.log("Received: " + msg.content);
 
         } else if(msg.content === "(╯°□°）╯︵ ┻━┻"){
 
             bot.reply(msg, " please respect tables ┬──┬ ノ( ゜-゜ノ)");
-            console.log("Received: " + msg.content);
 
         } else if(msg.content.toLowerCase() == "may pasok ba?"){
 
@@ -101,7 +99,6 @@ bot.on("message", (msg) => {
                     bot.sendMessage(msg.channel, maypasok);
                 }
             });
-            console.log("Received: " + msg.content);
         }
 
     }
